@@ -56,6 +56,10 @@ if (canvas) {
   canvas.addEventListener("mouseleave", stopPainting);
 }
 
+
+
+
+
 function stopTouch() {
   painting = false;
 }
@@ -81,9 +85,8 @@ function onTouchMove(event) {
 
 if (canvas) {
   canvas.addEventListener("touchmove", onTouchMove);
-  canvas.addEventListener("touchdown", starttouch);
-  canvas.addEventListener("touchup", stoptouch);
-  canvas.addEventListener("touchleave", stoptouch);
+  canvas.addEventListener("touchstart", starttouch);
+  canvas.addEventListener("touchend", endtouch);
 }
 
 
