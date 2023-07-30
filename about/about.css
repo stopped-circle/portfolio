@@ -9,7 +9,7 @@
 /*----헤더----*/
 .header{margin-top: 10vh;}
 
-#title{font-family:'Roboto Mono', monospace;}
+#title{font-family:'Roboto Mono', 'IBM Plex Sans KR', sans-serif;}
 
 
 .navigator{
