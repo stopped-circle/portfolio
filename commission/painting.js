@@ -60,41 +60,6 @@ if (canvas) {
 
 
 
-function stopTouch() {
-  painting = false;
-}
-
-function startTouch() {
-  painting = true;
-}
-
-ctx.lineWidth = 1;
-ctx.lineCap = "round";
-ctx.lineJoin = "round";
-function onTouchMove(event) {
-  const x = event.offsetX;
-  const y = event.offsetY;
-  if (!painting) {
-    ctx.beginPath();
-    ctx.moveTo(x, y);
-  } else {
-    ctx.lineTo(x, y);
-    ctx.stroke();
-  }
-}
-
-if (canvas) {
-  canvas.addEventListener("touchmove", onTouchMove);
-  canvas.addEventListener("touchstart", starttouch);
-  canvas.addEventListener("touchend", endtouch);
-}
-
-
-
-
-
-
-
 
 
 
