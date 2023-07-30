@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+
+    <link rel="stylesheet" type="text/css" href="home.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,200;1,200;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+</head>
+
+
+
+
+
+
+<body>
+<div class="frame">
+
+    <div class="header">
+
+        <h3 id="title">stopped.circle</h3>
+
+        <nav class="navigator">
+            <label for="btn" class="icon"> <span class="material-icons"> menu </span> </label>
+            <input type="checkbox" id="btn">
+            <ul>
+                <li><a class="menu" a href="home.html">home</a></li>
+                <li><a class="menu" a href="../about/about.html">about</a></li>
+                <li><a class="menu" a href="../works/works.html">works</a></li>
+                <li><a class="menu" a href="../commission/commission.html">commission</a></li>
+            </ul>
+        </nav>
+    </div>
+
+
+    <div class="img_box"> 
+        <script>
+        const images = [
+            "bg01.jpg", "bg02.jpg", "bg03.jpg", "bg04.jpg", "bg05.jpg",
+            "bg06.jpg", "bg07.jpg", "bg08.jpg", "bg09.jpg"
+        ];
+        
+        const chosenImage = images[Math.floor(Math.random() * images.length)];
+        const bgImage = document.createElement("img");
+        
+        bgImage.src = `home-image/${chosenImage}`;
+        document.body.appendChild(bgImage);
+        </script>
+    </div>
+
+
+</div>
+
+
+
+
+
+
+<div class="footer">
+    <h5 class="contact"><b>contact</b></h5>
+    <p class="link"><a href="https://www.instagram.com/stopped.circle/"target="_blank"><p>
+        @stopped.circle</p>
+    </a></p>
+    <p class="link"><a href="mailto:stopped.circle@gmail.com" target="_blank"><p>
+        stopped.circle@gmail.com</p> 
+    </a></p>
+    <br><br><br>
+    <p id="copyright">Copyright 2023. stopped.circle all right reserved.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+</body>
