@@ -58,10 +58,11 @@ if (canvas) {
 
 
 
-
+if (canvas) {
   canvas.addEventListener("touchmove", touchMove, false);
   canvas.addEventListener("touchstart", touchStart, false);
   canvas.addEventListener("touchend", touchEnd, false);
+}
 
 function getTouchPos(e) {
     return {
