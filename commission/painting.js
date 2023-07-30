@@ -92,7 +92,6 @@ function touchEnd(e) {
     // 점을 찍을 경우 위해 마지막에 점을 찍는다.
     // touchEnd 이벤트의 경우 위치정보가 없어서 startX, startY를 가져와서 점을 찍는다.
     ctx.beginPath();
-    ctx.arc(startX, startY, ctx.lineWidth/2, 0, 2*Math.PI);
     ctx.fillStyle = ctx.strokeStyle;
     ctx.fill();
     drawing = false;
