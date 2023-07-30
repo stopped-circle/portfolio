@@ -57,45 +57,50 @@ if (canvas) {
 }
 
 
+  canvas.on("touchstart", mobileDraw);
+  canvas.on("touchend", mobileDraw);
+  canvas.on("touchcancel", mobileDraw);
+  canvas.on("touchmove", mobileDraw);
 
-if (canvas) {
-  canvas.addEventListener("touchmove", touchMove, false);
-  canvas.addEventListener("touchstart", touchStart, false);
-  canvas.addEventListener("touchend", touchEnd, false);
-}
+function mobileDraw(evt){
+          console.log("");
+          console.log("[mobileDraw] : [start]");
+          console.log("");
 
-function getTouchPos(e) {
-    return {
-        x: e.touches[0].clientX - e.target.offsetLeft,
-        y: e.touches[0].clientY - e.target.offsetTop + document.documentElement.scrollTop
-    }
-}
+          switch(evt.type){
+            case "touchstart" : {
+               BodyScrollDisAble(); //body 스크롤 정지
+               drawble = true;
+               ctx.beginPath();
+               ctx.moveTo(getMobilePosition(evt).X, getMobilePosition(evt).Y);
+            }
+            break;
 
-function touchStart(e) {
-    e.preventDefault();
-    drawing = true;
-    const { x, y } = getTouchPos(e);
-    startX = x;
-    startY = y;
-}
+            case "touchmove" : {
+               if(drawble){
+                  // 스크롤 및 이동 이벤트 중지
+                  evt.preventDefault();
+                  ctx.lineTo(getMobilePosition(evt).X, getMobilePosition(evt).Y);
+                  ctx.stroke();
+               }
+            }
+            break;
 
-function touchMove(e) {
-    if(!drawing) return;
-    const { x, y } = getTouchPos(e);
-    draw(x, y);
-    startX = x;
-    startY = y;
-}
+            case "touchend" :
+            case "touchcancel" : {
+               BodyScrollDisAble(); //body 스크롤 허용
+               drawble = false;
+               ctx.closePath();
+            }
+            break;
+         }
+       };
 
-function touchEnd(e) {
-    if(!drawing) return;
-    // 점을 찍을 경우 위해 마지막에 점을 찍는다.
-    // touchEnd 이벤트의 경우 위치정보가 없어서 startX, startY를 가져와서 점을 찍는다.
-    ctx.beginPath();
-    ctx.fillStyle = ctx.strokeStyle;
-    ctx.fill();
-    drawing = false;
-}
+       function getMobilePosition(evt){
+          var x = evt.originalEvent.changedTouches[0].pageX - canvas.offset().left;
+          var y = evt.originalEvent.changedTouches[0].pageY - canvas.offset().top;
+          return {X:x, Y:y};
+       }; 
   
 
 
