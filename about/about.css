@@ -138,9 +138,7 @@ nav ul li:hover > ul{
 
 
 
-.words {
-    font-family: 'Roboto Mono', 'IBM Plex Sans KR', sans-serif;
-}
+.words {font-family: 'IBM Plex Sans KR', 'Roboto Mono', sans-serif;}
 @media (max-width:900px) {
     .introduce {margin-left: 20px;}
     .words {font-size: 13px;}
