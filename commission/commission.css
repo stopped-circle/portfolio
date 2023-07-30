@@ -133,6 +133,7 @@ nav ul li:hover > ul{
 /*-------그림판------*/
 .instruction{
     font-family: 'Roboto Mono', 'IBM Plex Sans KR', sans-serif;
+    font-weight: 200;
     margin-top: 100px;
     margin-left: 40px;
 }
