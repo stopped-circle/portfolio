@@ -142,7 +142,7 @@ nav ul li:hover > ul{
 .words-en {font-family: 'Roboto Mono', monospace;}
 @media (max-width:900px) {
     .introduce {margin-left: 20px;}
-    .words {font-size: 13px;}
+    .words , .words-en {font-size: 13px;}
 }
 
 
