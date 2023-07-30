@@ -57,51 +57,32 @@ if (canvas) {
 }
 
 
-  canvas.on("touchstart", mobileDraw);
-  canvas.on("touchend", mobileDraw);
-  canvas.on("touchcancel", mobileDraw);
-  canvas.on("touchmove", mobileDraw);
+ this.touchstart = function (ev) {
+	context.beginPath();
+	context.moveTo(ev._x, ev._y);
+	tool.started = true;
+    };
+    // 마우스가 이동하는 동안 계속 호출하여 Canvas에 Line을 그려 나간다
+    this.touchmove = function (ev) {
+	if (tool.started) {
+	    context.lineTo(ev._x, ev._y);
+	    context.stroke();
+	}
+    };
+    // 마우스 떼면 그리기 작업을 중단한다
+    this.touchend = function (ev) {
+	if (tool.started) {
+	    tool.touchmove(ev);
+	    tool.started = false;
+	}
+    };
 
-function mobileDraw(evt){
-          console.log("");
-          console.log("[mobileDraw] : [start]");
-          console.log("");
 
-          switch(evt.type){
-            case "touchstart" : {
-               BodyScrollDisAble(); //body 스크롤 정지
-               drawble = true;
-               ctx.beginPath();
-               ctx.moveTo(getMobilePosition(evt).X, getMobilePosition(evt).Y);
-            }
-            break;
 
-            case "touchmove" : {
-               if(drawble){
-                  // 스크롤 및 이동 이벤트 중지
-                  evt.preventDefault();
-                  ctx.lineTo(getMobilePosition(evt).X, getMobilePosition(evt).Y);
-                  ctx.stroke();
-               }
-            }
-            break;
 
-            case "touchend" :
-            case "touchcancel" : {
-               BodyScrollDisAble(); //body 스크롤 허용
-               drawble = false;
-               ctx.closePath();
-            }
-            break;
-         }
-       };
 
-       function getMobilePosition(evt){
-          var x = evt.originalEvent.changedTouches[0].pageX - canvas.offset().left;
-          var y = evt.originalEvent.changedTouches[0].pageY - canvas.offset().top;
-          return {X:x, Y:y};
-       }; 
-  
+
+
 
 
 
