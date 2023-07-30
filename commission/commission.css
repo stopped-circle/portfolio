@@ -157,7 +157,7 @@ nav ul li:hover > ul{
 .sendEmail { margin-top :200px; }
 .send_email { 
     line-height: 15px;
-    font-family: 'Roboto Mono', monospace;
+    font-family: 'Roboto Mono', 'IBM Plex Sans KR', sans-serif;
     color: inherit;
     color: rgb(156, 156, 156);
 }
@@ -168,7 +168,7 @@ nav ul li:hover > ul{
     display: flex;
     flex-direction: column;
 
-    font-family: 'Roboto Mono', monospace;
+    font-family: 'Roboto Mono', 'IBM Plex Sans KR', sans-serif;
     border: none; 
 }
 
