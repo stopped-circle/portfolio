@@ -26,11 +26,6 @@ canvas.style.borderRadius = "15px"
 canvas.style.fillStyle = "white"
 let painting = false;
 
-
-
-
-
-
 function stopPainting() {
   painting = false;
 }
@@ -38,10 +33,6 @@ function stopPainting() {
 function startPainting() {
   painting = true;
 }
-
-
-
-
 
 ctx.lineWidth = 1;
 ctx.lineCap = "round";
@@ -58,16 +49,56 @@ function onMouseMove(event) {
   }
 }
 
-
-
-
-
 if (canvas) {
   canvas.addEventListener("mousemove", onMouseMove);
   canvas.addEventListener("mousedown", startPainting);
   canvas.addEventListener("mouseup", stopPainting);
   canvas.addEventListener("mouseleave", stopPainting);
 }
+
+
+
+
+  canvas.addEventListener("touchmove", touchMove, false);
+  canvas.addEventListener("touchstart", touchStart, false);
+  canvas.addEventListener("touchend", touchEnd, false);
+
+function getTouchPos(e) {
+    return {
+        x: e.touches[0].clientX - e.target.offsetLeft,
+        y: e.touches[0].clientY - e.target.offsetTop + document.documentElement.scrollTop
+    }
+}
+
+function touchStart(e) {
+    e.preventDefault();
+    drawing = true;
+    const { x, y } = getTouchPos(e);
+    startX = x;
+    startY = y;
+}
+
+function touchMove(e) {
+    if(!drawing) return;
+    const { x, y } = getTouchPos(e);
+    draw(x, y);
+    startX = x;
+    startY = y;
+}
+
+function touchEnd(e) {
+    if(!drawing) return;
+    // 점을 찍을 경우 위해 마지막에 점을 찍는다.
+    // touchEnd 이벤트의 경우 위치정보가 없어서 startX, startY를 가져와서 점을 찍는다.
+    ctx.beginPath();
+    ctx.arc(startX, startY, ctx.lineWidth/2, 0, 2*Math.PI);
+    ctx.fillStyle = ctx.strokeStyle;
+    ctx.fill();
+    drawing = false;
+}
+  
+
+
 
 document.querySelector("#buttons").style.marginLeft = "15px";
 const buttons = [
@@ -131,14 +162,6 @@ function handleSaveBtn() {
     link.download = "your_artwork";
     link.click();
 }
-
-
-
-
-
-
-
-
 
 function undoRedo(pushStack,popStack) {
   pushStack.push(popStack.pop());
