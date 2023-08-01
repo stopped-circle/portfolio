@@ -1,0 +1,372 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {  display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: column;}
+
+.frame{
+    display:flex;
+    flex-direction: column;
+}
+
+/*----헤더----*/
+.header{margin-top: 10vh;}
+
+#title{font-family:'Roboto Mono', monospace;}
+
+
+.navigator{
+    display: table;
+    flex-direction:row wrap;
+}
+
+a{text-decoration: none;}
+        
+nav:after{
+    content: '';
+    clear: both;
+    display: table;
+}
+
+nav ul{
+    float: right;
+    list-style: none;
+    margin-right: 40%;
+    margin-left: 40%;
+    padding-left: 40vw;
+    position: relative;
+    margin: 0px; 
+ }
+
+nav ul li{
+    display: inline-block;
+    margin: 0px;
+}
+
+
+nav ul li:hover > ul{
+    opacity: 1;
+    visibility: visible;
+}
+
+.menu{
+    font-family: 'Roboto Mono', monospace;
+    padding: 5px;
+    border-radius: 20px;
+    color: rgb(0, 0, 0);
+}
+     
+
+
+.menu:hover{
+    color: white;
+    background-color: rgb(190, 190, 190);
+    transition: 0.2s;}
+
+.show, .icon, #btn{display: none;}
+#btn-1, #btn-2{display: none;}
+
+/*네비게이션 반응형(햄버거)*/
+
+@media (max-width: 900px) {
+    nav ul{
+        display: none;
+        margin: 0px;
+        right: 10px;
+        top: 40px;
+        float:inline-end;
+        text-align: right;
+        animation: fadein 1s;}
+
+    nav ul li{
+        display: block;
+        width: 100%;
+        margin: 0;}
+
+    nav ul li a{
+        padding-left: 20px;
+        line-height: 2.5;}
+
+    .menu{font-size: 18px;}
+
+    nav .icon{
+        display: block;
+        color:rgb(114, 126, 131);
+        position: absolute;
+        right: 50px;
+        line-height: 0px;
+        font-size: 70px;
+        cursor: pointer;}
+
+    nav ul li a:hover{box-shadow: none;}
+
+    [id^=btn]:checked + ul{display: block;}
+}
+
+@media (max-width: 600px){
+
+    .header{margin-top: 0;}
+
+    #title{top:20px;}
+
+    nav .icon {
+        display: block;
+        float: right;
+        top: 15px;
+        color: rgb(114, 126, 131);
+        position: absolute;
+        right: 5px;
+        line-height: 70px;
+        font-size: 0px;
+        cursor: pointer;}
+
+    nav ul{
+        display:none;
+        margin-right: 0px;
+        margin-left:0px;
+        float: right;
+        text-align: right;
+    }
+
+    .menu{font-size: 16px;}
+}
+
+
+
+
+/*-------그림판------*/
+.instruction{
+    font-family: 'Roboto Mono', 'IBM Plex Sans KR', sans-serif;
+    font-weight: 200;
+    margin-top: 100px;
+    margin-left: 40px;
+}
+
+@media (max-width:900px) {
+    .inst {font-size: 13px;}
+    .instruction {margin-left: 20px;}
+}
+
+
+
+
+
+body {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+
+    height: 100vh;
+    width: 100%;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+
+  }
+  
+  .signature-pad {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    font-size: 10px;
+    width: 100%;
+    height: 100%;
+    max-width: 700px;
+    max-height: 460px;
+    border: 1px solid #e8e8e8;
+    background-color: #fff;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.08) inset;
+    border-radius: 4px;
+    padding: 16px;
+  }
+  
+  .signature-pad::before,
+  .signature-pad::after {
+    position: absolute;
+    z-index: -1;
+    content: "";
+    width: 40%;
+    height: 10px;
+    bottom: 10px;
+    background: transparent;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4);
+  }
+  
+  .signature-pad::before {
+    left: 20px;
+    -webkit-transform: skew(-3deg) rotate(-3deg);
+            transform: skew(-3deg) rotate(-3deg);
+  }
+  
+  .signature-pad::after {
+    right: 20px;
+    -webkit-transform: skew(3deg) rotate(3deg);
+            transform: skew(3deg) rotate(3deg);
+  }
+  
+  .signature-pad--body {
+    position: relative;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    border: 1px solid #f4f4f4;
+  }
+  
+  .signature-pad--body
+  canvas {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.02) inset;
+  }
+  
+  .signature-pad--footer {
+    color: #C3C3C3;
+    text-align: center;
+    font-size: 1.2em;
+    margin-top: 8px;
+  }
+  
+  .signature-pad--actions {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    margin-top: 8px;
+  }
+  
+  .signature-pad--actions .column {
+    padding: .1em;
+  }
+  
+  .signature-pad--actions .button {
+    margin: .2em;
+  }
+  
+  #github img {
+    border: 0;
+  }
+  
+  @media (max-width: 940px) {
+    #github img {
+      width: 90px;
+      height: 90px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .signature-pad--actions .button {
+      display: block;
+      width: 100%;
+      min-height: 2em;
+    }
+  }
+  
+
+
+
+
+
+
+
+.signature-pad--body {
+    border: solid rgb(190, 190, 190) 1px;
+    border-radius: 25px;
+}
+.signature-pad--body:hover {cursor:crosshair;}
+
+.signature-pad--footer {
+    font-family: 'Roboto Mono', monospace;
+}
+button {
+    font-family: 'Roboto Mono', monospace;
+    background-color: white;
+    border: solid rgb(190, 190, 190) 1px;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-top :20px
+}
+
+
+
+
+
+
+
+
+
+/*---------이메일----------*/
+.sendEmail { margin-top : 300px; }
+.send_email { 
+    line-height: 15px;
+    font-family: 'Roboto Mono', 'IBM Plex Sans KR', sans-serif;
+    color: inherit;
+    color: rgb(156, 156, 156);
+}
+
+.forms {
+    width: 70vw;
+    margin: 30px; 
+    display: flex;
+    flex-direction: column;
+
+    font-family: 'Roboto Mono', 'IBM Plex Sans KR', sans-serif;
+    border: none; 
+}
+
+@media (max-width: 900px) {
+    .forms {
+        width: 100%;
+        margin:0;
+        margin-top:20px;
+    }
+}
+
+
+
+#fill_out_email , #fill_out_message, #attach_file{
+    font-family: 'Roboto Mono', monospace;
+    border-radius: 25px;
+    margin-top: 5px;
+    padding: 7px;
+}
+
+
+
+.btn_submit { 
+    font-family: 'Roboto Mono', monospace;
+    margin-top: 50px;
+    border: none;
+    cursor: pointer;
+}
+
+/*-----푸터------*/
+
+.footer {
+    margin-top: 20vh;
+    margin-bottom: 10vh;
+    line-height: 15px;
+    font-family: 'Roboto Mono', monospace;
+    color: inherit;
+    color: rgb(156, 156, 156);
+}
+
+p{margin: 5px;}
+.copyright {font-size: 15px;}
+

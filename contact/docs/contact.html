@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+    <title>contact</title>
+
+
+  <meta name="description" content="Signature Pad - HTML5 canvas based smooth signature drawing using variable width spline interpolation.">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <link rel="stylesheet" href="css/signature-pad.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@200;300;400&family=Noto+Serif+KR:wght@200&family=Roboto+Mono:ital,wght@0,200;1,200;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-39365077-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</head>
+
+
+
+
+
+
+<body>
+
+
+  <div class="header">
+
+      <h3 id="title">stopped.circle</h3>
+
+        <nav class="navigator">
+            <label for="btn" class="icon"> <span class="material-icons"> menu </span> </label>
+            <input type="checkbox" id="btn">
+            <ul>
+                <li><a class="menu" a href="../../index.html">home</a></li>
+                <li><a class="menu" a href="../../about/about.html">about</a></li>
+                <li><a class="menu" a href="../../works/works.html">works</a></li>
+                <li><a class="menu" a href="contact.html">contact</a></li>
+            </ul>
+        </nav>
+  </div>
+
+
+  <div class="painting">
+
+  <div class="instruction">
+      <p class="inst">
+          아래 그림판에 간단한 그림을 그려보세요. 작업물을 이메일로 전송해주시면 재해석하여 보내드립니다. <br>
+          *이미지 첨부 시 아래 웹상 폼이 아닌 개인 이메일을 사용해주시면 감사하겠습니다. <br><br>
+          send me a piece you've drawn. i'll re-interpret it with my style and send you back.<br>
+          *to send a image file, please use dm or email privately.</p>
+  </div>
+
+  
+
+  <div id="signature-pad" class="signature-pad">
+
+      <canvas style="width: 100%; height: 500px;"></canvas>
+    
+
+    <div class="signature-pad--footer">
+
+      <div class="description">your_work</div>
+
+      <div class="signature-pad--actions">
+        <div class="column">
+          <button type="button" class="button clear" data-action="clear">Clear</button>
+          <button type="button" class="button" data-action="undo">Undo</button>
+        </div>
+
+        <div class="column">
+          <button type="button" class="button save" data-action="save-png">Save as PNG</button>
+          <button type="button" class="button save" data-action="save-jpg">Save as JPG</button>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+
+  <div class="sendEmail">
+    <h5 class="send_email"><b>send email</b></h5>
+
+    <form class="gform" method="POST" data-email="stopped.circle@gmail.com"
+    action="https://script.google.com/macros/s/AKfycbyL_BxNuLCPuWCA9IqZqDqTBPHyLK9-AojMk4ThzQZ3rQ7-UIE7jxRAYXAbAc3tT7A/exec"
+    enctype="multipart/form-data">
+
+        <div class="forms">
+
+            <label for="email">your email address</label>
+            <textarea id="fill_out_email" name="user_email" rows="1"
+            placeholder="someone@example.com" required></textarea>
+
+            <br>
+            
+            <label for="message">Message</label>
+            <textarea id="fill_out_message" name="user_message" rows="10"
+            placeholder="hi, i'd like to order some pizza." required></textarea>
+
+            <br>
+<!--
+            <label for="file">attach file</label>
+            <input type="file" id="attach_file" name="user_file"
+            placeholder="attach your file.">
+            
+-->
+
+            <button type="submit" class="btn_submit">send</button>
+        </div>
+
+
+    </form>
+
+
+</div>
+
+
+
+<div class="footer">
+  <h5 class="contact"><b>contact</b></h5>
+  <p class="link"><a href="https://www.instagram.com/stopped.circle/"target="_blank"><p>
+      @stopped.circle</p>
+  </a></p>
+  <p class="link"><a href="mailto:stopped.circle@gmail.com" target="_blank"><p>
+      stopped.circle@gmail.com</p> 
+  </a></p>
+  <br><br><br>
+  <p id="copyright">Copyright 2023. stopped.circle all right reserved.</p>
+</div>
+
+
+
+
+
+
+
+<script src="js/signature_pad.umd.js"></script>
+<script src="js/app.js"></script>
+
+
+</body>
+</html>
